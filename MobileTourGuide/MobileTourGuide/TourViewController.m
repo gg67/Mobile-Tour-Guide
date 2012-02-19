@@ -1,14 +1,14 @@
 //
-//  TourFirstViewController.m
+//  TourViewController.m
 //  MobileTourGuide
 //
 //  Created by Scott Andrus on 2/16/12.
 //  Copyright (c) 2012 Vanderbilt University. All rights reserved.
 //
 
-#import "TourFirstViewController.h"
+#import "TourViewController.h"
 
-@implementation TourFirstViewController
+@implementation TourViewController
 
 - (void)didReceiveMemoryWarning
 {

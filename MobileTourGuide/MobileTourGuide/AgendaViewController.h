@@ -1,5 +1,5 @@
 //
-//  TourAppDelegate.h
+//  AgendaViewController.h
 //  MobileTourGuide
 //
 //  Created by Scott Andrus on 2/16/12.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TourAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface AgendaViewController : UIViewController
 
 @end
