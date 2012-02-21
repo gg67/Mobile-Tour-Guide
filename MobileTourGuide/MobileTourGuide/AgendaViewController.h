@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Location.h"
 
-@interface AgendaViewController : UIViewController
+@interface AgendaViewController : UITableViewController
+
+@property (strong, nonatomic) NSMutableArray *locations;
 
 @end
+

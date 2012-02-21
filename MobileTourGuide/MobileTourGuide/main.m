@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TourAppDelegate.h"
+#import "GuideAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([TourAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([GuideAppDelegate class]));
     }
 }

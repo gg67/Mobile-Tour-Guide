@@ -7,14 +7,64 @@
 //
 
 #import "GuideAppDelegate.h"
+#import "AgendaViewController.h"
+#import "Location.h"
 
-@implementation GuideAppDelegate
+@implementation GuideAppDelegate 
 
+@synthesize locations;
 @synthesize window = _window;
+
+//@synthesize rootController = _rootController;
+//@synthesize navController = _navController;
+
+#pragma mark -
+#pragma mark Application lifecycle
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    locations = [NSMutableArray arrayWithCapacity:5];
+    Location *location1 = [[Location alloc] init];
+    Location *location2 = [[Location alloc] init];
+    Location *location3 = [[Location alloc] init];
+    Location *location4 = [[Location alloc] init];
+    Location *location5 = [[Location alloc] init];
+    
+    location1.name = @"Undergraduate Admissions";
+    location2.name = @"Kissam";
+    location3.name = @"Rand";
+    location4.name = @"Featheringill";
+    location5.name = @"Rec Center";
+    
+    location1.category = @"Adminstrative";
+    location2.category = @"Residence Hall";
+    location3.category = @"Dining Hall";
+    location4.category = @"Class Building";
+    location5.category = @"Athletics / Recreation";
+    
+    location1.description = @"Admissions description";
+    location2.description = @"Kissam description";
+    location3.description = @"Rand description";
+    location4.description = @"FGH description";
+    location5.description = @"Rec description";
+    
+    [locations addObject:location1];
+    [locations addObject:location2];
+    [locations addObject:location3];
+    [locations addObject:location4];
+    [locations addObject:location5];
+    
+    UITabBarController *tabBarController = 
+    (UITabBarController *)self.window.rootViewController;
+	
+    UINavigationController *navigationController = 
+    [[tabBarController viewControllers] objectAtIndex:0];
+	
+    AgendaViewController *locationsViewController = 
+    [[navigationController viewControllers] objectAtIndex:0];
+	locationsViewController.locations = locations;
+    
     return YES;
 }
 							
