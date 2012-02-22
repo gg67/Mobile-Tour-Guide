@@ -10,17 +10,10 @@
 #import "LocationDetailController.h"
 #import "Location.h"
 
-@implementation AgendaViewController
-@synthesize locations;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        //Custom initialization
-    }
-    return self;
-}
+@implementation AgendaViewController
+@synthesize locations, aName, aImagePath, aDescription, aVideoPath;
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -32,16 +25,50 @@
 
 - (void)viewDidLoad
 {
+    [self.tableView reloadData];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload
 {
+    self.aName = nil;
+    self.aImagePath = nil;
+    self.aDescription = nil;
+    self.aVideoPath = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	[super viewDidDisappear:animated];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
 
 #pragma mark - Table view data source
 
@@ -83,43 +110,22 @@
 
 #pragma mark -
 #pragma mark Table View Delegate Methods
+/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
     
-    LocationDetailController *nextController = [[LocationDetailController alloc] initWithNibName:@"Test" bundle:nil];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    LocationDetailController *nextController = [[LocationDetailController alloc] initWithNibName:@"LocationDetailController" bundle:nil];
+    
+    aName = [[NSString alloc] initWithString:[[locations valueForKey:@"name"] objectAtIndex:indexPath.row]];
+    aImagePath = [[NSString alloc] initWithString:[[locations valueForKey:@"image"] objectAtIndex:indexPath.row]];
+    aDescription = [[NSString alloc] initWithString:[[locations valueForKey:@"description"] objectAtIndex:indexPath.row]];
+    aVideoPath = [[NSString alloc] initWithString:[[locations valueForKey:@"video"] objectAtIndex:indexPath.row]];
+    
+    [nextController initWithName:aName imagePath:aImagePath description:aDescription videoPath:aVideoPath];
+    
     [self.navigationController pushViewController:nextController animated:YES];
+    
 }
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
+*/
 @end

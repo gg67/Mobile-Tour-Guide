@@ -10,18 +10,62 @@
 
 @implementation LocationDetailController
 
-@synthesize label = _label;
-@synthesize message = _message;
+@synthesize description;
 
 - (void)viewWillAppear:(BOOL)animated {
-    _label.text = _message;
     [super viewWillAppear:animated];
 }
 
+- (id)initWithName:(NSString *)aName
+         imagePath:(NSString *)aImagePath
+       description:(NSString *)aDescription
+         videoPath:(NSString *)aVideoPath {    
+    if ((self = [super initWithNibName:@"LocationDetailController" bundle:nil])) 
+    {
+        self.title = aName;
+        self.description = aDescription;
+    }
+    [super viewDidLoad];
+    return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+
 - (void)viewDidUnload {
-    self.label = nil;
-    self.message = nil;
+    self.title = nil;
+    self.description = nil;
     [super viewDidUnload];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Release any cached data, images, etc that aren't in use.
+}
+
+#pragma mark - View lifecycle
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	[super viewDidDisappear:animated];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 @end

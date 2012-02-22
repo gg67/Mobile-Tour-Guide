@@ -12,6 +12,10 @@
 @interface AgendaViewController : UITableViewController
 
 @property (strong, nonatomic) NSMutableArray *locations;
+@property (strong, nonatomic) NSString *aName;
+@property (strong, nonatomic) NSString *aImagePath;
+@property (strong, nonatomic) NSString *aDescription;
+@property (strong, nonatomic) NSString *aVideoPath;
 
 @end
 

@@ -15,9 +15,6 @@
 @synthesize locations;
 @synthesize window = _window;
 
-//@synthesize rootController = _rootController;
-//@synthesize navController = _navController;
-
 #pragma mark -
 #pragma mark Application lifecycle
 
@@ -48,6 +45,18 @@
     location3.description = @"Rand description";
     location4.description = @"FGH description";
     location5.description = @"Rec description";
+    
+    location1.image = @"Admissions image";
+    location2.image = @"Kissam image";
+    location3.image = @"Rand image";
+    location4.image = @"FGH image";
+    location5.image = @"Rec image";
+
+    location1.video = @"Admissions video";
+    location2.video = @"Kissam video";
+    location3.video = @"Rand video";
+    location4.video = @"FGH video";
+    location5.video = @"Rec video";
     
     [locations addObject:location1];
     [locations addObject:location2];

@@ -13,7 +13,4 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSMutableArray *locations;
 
-//@property (strong, nonatomic) UINavigationController *navController;
-//@property (strong, nonatomic) IBOutlet UITabBarController *rootController;
-
 @end

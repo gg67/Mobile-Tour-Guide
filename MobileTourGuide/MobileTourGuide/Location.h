@@ -10,10 +10,10 @@
 
 @interface Location : NSObject
 
-@property (retain, nonatomic) NSString *name;
-@property (strong, nonatomic) UIImage *image;
-@property (retain, nonatomic) NSString *description;
-@property (strong, nonatomic) UIButton *video;
-@property (retain, nonatomic) NSString *category;
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *image;
+@property (strong, nonatomic) NSString *description;
+@property (strong, nonatomic) NSString *video;
+@property (strong, nonatomic) NSString *category;
 
 @end

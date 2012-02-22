@@ -10,8 +10,11 @@
 
 @interface LocationDetailController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UILabel *label;
-@property (strong, nonatomic) NSString *message;
+@property (strong, nonatomic) NSString *description;
 
+- (id)initWithName:(NSString *)aName
+         imagePath:(NSString *)aImagePath
+       description:(NSString *)aDescription
+         videoPath:(NSString *)aVideoPath;
 
 @end
