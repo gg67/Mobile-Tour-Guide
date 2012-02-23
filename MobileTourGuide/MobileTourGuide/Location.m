@@ -16,5 +16,6 @@
 @synthesize video = _video;
 @synthesize category = _category;
 @synthesize hours = _hours;
+@synthesize onAgenda;
 
 @end

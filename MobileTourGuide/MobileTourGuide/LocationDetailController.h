@@ -22,6 +22,11 @@
 @property (strong, nonatomic) IBOutlet UITextView *description;
 @property (strong, nonatomic) IBOutlet UILabel *hours;
 
+@property BOOL onAgenda;
+
+@property (strong, nonatomic) IBOutlet UIButton *addAgenda;
+@property (strong, nonatomic) IBOutlet UILabel * alreadyOnAgenda;
+
 @property (copy, nonatomic) NSDictionary *selection;
 @property (weak, nonatomic) id delegate;
 

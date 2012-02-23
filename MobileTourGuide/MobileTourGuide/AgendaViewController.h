@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSString *aVideo;
 @property (strong, nonatomic) NSString *anImage;
 @property (strong, nonatomic) NSString *anHours;
+@property (strong, nonatomic) NSDictionary *editedSelection;
 
 @property (strong, nonatomic) NSIndexPath *indexSel;
 

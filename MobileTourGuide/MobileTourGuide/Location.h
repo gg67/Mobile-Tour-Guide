@@ -16,5 +16,6 @@
 @property (strong, nonatomic) NSString *video;
 @property (strong, nonatomic) NSString *category;
 @property (strong, nonatomic) NSString *hours;
+@property BOOL onAgenda;
 
 @end

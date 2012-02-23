@@ -33,7 +33,7 @@
     Location *location4 = [[Location alloc] init];
     Location *location5 = [[Location alloc] init];
     
-    location1.name = @"Undergraduate Admissions";
+    location1.name = @"Admissions";
     location2.name = @"Kissam";
     location3.name = @"Rand";
     location4.name = @"Featheringill";
@@ -48,7 +48,9 @@
     location1.description = @"Admissions description";
     location2.description = @"Kissam description";
     location3.description = @"Rand description";
-    location4.description = @"FGH description";
+    
+    location4.description = @"A distinctive tower marks the entrance of Featheringill Hall, one of four buildings housing the Vanderbilt School of Engineering. Inside, Featheringill features a three-story atrium, which serves as a focal for student interaction and social events, more than 50 teaching and research laboratories with the latest equpment and computer resources, and project rooms.";
+    
     location5.description = @"Rec description";
     
     location1.image = @"Admissions image";

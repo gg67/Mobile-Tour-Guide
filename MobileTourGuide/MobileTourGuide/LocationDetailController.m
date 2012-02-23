@@ -10,7 +10,11 @@
 
 @implementation LocationDetailController
 
-@synthesize aDescription, aVideo, anImage, anHours, indexSel, currentLoc, delegate, selection, description, hours;
+//@interface LocationDetailController
+//
+//@end
+
+@synthesize aDescription, aVideo, anImage, anHours, indexSel, currentLoc, delegate, selection, description, hours, onAgenda, addAgenda, alreadyOnAgenda;
 
 - (void)viewDidLoad {
 
@@ -23,6 +27,18 @@
     self.aVideo = currentLoc.video;
     self.anImage = currentLoc.image;
     self.anHours = currentLoc.hours;
+    
+    if (onAgenda) {
+        alreadyOnAgenda.hidden = NO;
+        addAgenda.hidden = YES;
+    }
+    else {
+        alreadyOnAgenda.hidden = YES;
+        addAgenda.hidden = NO;
+    }
+    
+    //[[self view] setBackgroundColor:[UIColor yellowColor]];
+    //colorWithPatternImage:[UIImage imageNamed:@"/Users/Scott/Downloads/linen.jpg"]
 }
 
 - (void)viewDidUnload {
@@ -40,7 +56,14 @@
 #pragma mark - View lifecycle
 
 - (IBAction)videoPressed:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/v/oHg5SJYRHA0&f=gdata_videos&c=ytapi-my-clientID&d=nGF83uyVrg8eD4rfEkk22mDOl3qUImVMV6ramM"]];  
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=H4NaxPOHLdQ"]];  
+}
+
+- (IBAction)addAgenda:(id)sender {
+    onAgenda = YES;
+    alreadyOnAgenda.hidden = NO;
+    addAgenda.hidden = YES;
+    currentLoc.onAgenda = onAgenda;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -51,6 +74,13 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
+    // prepare selection info
+    NSIndexPath *indexPath = [selection objectForKey:@"indexPath"];
+    NSDictionary *editedSelection = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     indexPath, @"indexPath",
+                                     currentLoc, @"location",
+                                     nil];
+    [delegate setValue:editedSelection forKey:@"editedSelection"];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

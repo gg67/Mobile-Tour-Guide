@@ -12,8 +12,7 @@
 
 
 @implementation AgendaViewController
-@synthesize locations, aName, aCategory, aDescription, aVideo, anImage, anHours, indexSel;
-
+@synthesize locations, aName, aCategory, aDescription, aVideo, anImage, anHours, indexSel, editedSelection;
 
 - (void)didReceiveMemoryWarning
 {
@@ -90,7 +89,10 @@
     NSString *identifier = @"LocationCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
+    
     Location *location = [self.locations objectAtIndex:indexPath.row];
+    location.onAgenda = YES;
+    
     cell.textLabel.text = location.name;
 	cell.detailTextLabel.text = location.category;
     
@@ -124,11 +126,17 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         
         Location *loc = [self.locations objectAtIndex:indexPath.row];
-        
-        NSDictionary *selection = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   indexPath, @"indexPath",
-                                   loc, @"location",
-                                   nil];
+        NSDictionary *selection;
+        if (editedSelection == nil) {
+            selection = [NSDictionary dictionaryWithObjectsAndKeys:
+                                       indexPath, @"indexPath",
+                                       loc, @"location",
+                                       nil];
+        }
+        else {
+            selection = editedSelection;
+        }
+       
         [destination setValue:selection forKey:@"selection"];
         destination.title = loc.name;
     }
