@@ -7,16 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Location.h"
 
 @interface LocationDetailController : UIViewController
 
-@property (strong, nonatomic) NSString *description;
+@property (strong, nonatomic) NSString *aDescription;
+@property (strong, nonatomic) NSString *aVideo;
+@property (strong, nonatomic) NSString *anImage;
+@property (strong, nonatomic) NSString *anHours;
+
+@property (strong, nonatomic) NSIndexPath *indexSel;
+@property (strong, nonatomic) Location *currentLoc;
+
+@property (strong, nonatomic) IBOutlet UITextView *description;
+@property (strong, nonatomic) IBOutlet UILabel *hours;
+
 @property (copy, nonatomic) NSDictionary *selection;
 @property (weak, nonatomic) id delegate;
-
-- (id)initWithName:(NSString *)aName
-         imagePath:(NSString *)aImagePath
-       description:(NSString *)aDescription
-         videoPath:(NSString *)aVideoPath;
 
 @end

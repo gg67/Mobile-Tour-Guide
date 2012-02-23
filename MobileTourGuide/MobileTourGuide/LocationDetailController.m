@@ -10,18 +10,24 @@
 
 @implementation LocationDetailController
 
-@synthesize description, delegate, selection;
-
+@synthesize aDescription, aVideo, anImage, anHours, indexSel, currentLoc, delegate, selection, description, hours;
 
 - (void)viewDidLoad {
-//    textView.text = [selection objectForKey:@"object"];
-//    [textView becomeFirstResponder];
+
     [super viewDidLoad];
+    self.currentLoc = [selection valueForKey:@"location"];
+
+    self.description.text = [currentLoc description];
+    NSString *newHours = @"Hours: ";
+    self.hours.text = [newHours stringByAppendingString:currentLoc.hours];
+    self.aVideo = currentLoc.video;
+    self.anImage = currentLoc.image;
+    self.anHours = currentLoc.hours;
 }
 
 - (void)viewDidUnload {
     self.title = nil;
-    self.description = nil;
+    self.aDescription = nil;
     [super viewDidUnload];
 }
 

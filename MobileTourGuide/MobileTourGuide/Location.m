@@ -15,5 +15,6 @@
 @synthesize description = _description;
 @synthesize video = _video;
 @synthesize category = _category;
+@synthesize hours = _hours;
 
 @end

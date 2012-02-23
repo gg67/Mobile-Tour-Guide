@@ -12,7 +12,7 @@
 
 
 @implementation AgendaViewController
-@synthesize locations, aName, aImagePath, aDescription, aVideoPath, indexSel;
+@synthesize locations, aName, aCategory, aDescription, aVideo, anImage, anHours, indexSel;
 
 
 - (void)didReceiveMemoryWarning
@@ -35,10 +35,6 @@
     
     [super viewDidUnload];
     self.locations = nil;
-    self.aName = nil;
-    self.aImagePath = nil;
-    self.aDescription = nil;
-    self.aVideoPath = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -98,11 +94,6 @@
     cell.textLabel.text = location.name;
 	cell.detailTextLabel.text = location.category;
     
-//    aName = [[NSString alloc] initWithString:[[locations valueForKey:@"name"] objectAtIndex:indexSel.row]];
-//    aImagePath = [[NSString alloc] initWithString:[[locations valueForKey:@"image"] objectAtIndex:indexSel.row]];
-//    aDescription = [[NSString alloc] initWithString:[[locations valueForKey:@"description"] objectAtIndex:indexSel.row]];
-//    aVideoPath = [[NSString alloc] initWithString:[[locations valueForKey:@"video"] objectAtIndex:indexSel.row]];
-    
     return cell;
 }
 
@@ -128,18 +119,18 @@
     
     LocationDetailController *destination = segue.destinationViewController;
     
-    destination.title = aName;
-    destination.description = aDescription;
-    
     if ([destination respondsToSelector:@selector(setSelection:)]) {
         // prepare selection info
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        id object = [self.locations objectAtIndex:indexPath.row];
+        
+        Location *loc = [self.locations objectAtIndex:indexPath.row];
+        
         NSDictionary *selection = [NSDictionary dictionaryWithObjectsAndKeys:
                                    indexPath, @"indexPath",
-                                   object, @"object",
+                                   loc, @"location",
                                    nil];
         [destination setValue:selection forKey:@"selection"];
+        destination.title = loc.name;
     }
     
 }

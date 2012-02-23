@@ -63,6 +63,12 @@
     location4.video = @"FGH video";
     location5.video = @"Rec video";
     
+    location1.hours = @"9 A.M. to 5 P.M.";
+    location2.hours = @"9 A.M. to 5 P.M.";
+    location3.hours = @"9 A.M. to 5 P.M.";
+    location4.hours = @"9 A.M. to 5 P.M.";
+    location5.hours = @"9 A.M. to 5 P.M.";
+    
     [locations addObject:location1];
     [locations addObject:location2];
     [locations addObject:location3];
