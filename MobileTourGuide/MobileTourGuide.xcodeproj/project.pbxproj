@@ -297,6 +297,7 @@
 				D2C5A0D514ED8D6300F365C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
