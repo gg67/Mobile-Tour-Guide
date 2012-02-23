@@ -26,6 +26,11 @@
 {
     [self.tableView reloadData];
     [super viewDidLoad];
+//    UIBarButtonItem *moveButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit"
+//                                                                   style:UIBarButtonItemStyleBordered 
+//                                                                  target:self
+//                                                                  action:@selector(toggleMove)];
+//    self.navigationItem.leftBarButtonItem = moveButton;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -108,6 +113,26 @@
 	}   
 }
 
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    NSUInteger fromRow = [fromIndexPath row];
+    NSUInteger toRow = [toIndexPath row];
+    id object = [locations objectAtIndex:fromRow];
+    [locations removeObjectAtIndex:fromRow];
+    [locations insertObject:object atIndex:toRow];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (IBAction)redAlert:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh oh!"
+                                                    message:[NSString stringWithFormat:@"This is currently a prototype. Full version coming soon!"]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
 #pragma mark -
 #pragma mark Table View Delegate Methods
 
@@ -115,6 +140,16 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
+}
+
+- (IBAction)toggleMove {
+    [self.tableView setEditing:!self.tableView.editing animated:YES];
+    if (self.tableView.editing) {
+        [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
+    }
+    else {
+        [self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender { 
@@ -138,6 +173,7 @@
         }
        
         [destination setValue:selection forKey:@"selection"];
+        
         destination.title = loc.name;
     }
     

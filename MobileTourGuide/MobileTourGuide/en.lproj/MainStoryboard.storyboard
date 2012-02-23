@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationCell" textLabel="Qfo-db-pwi" detailTextLabel="2yP-fP-iOe" style="IBUITableViewCellStyleSubtitle" id="3Gj-l7-gKz">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationCell" editingAccessoryType="checkmark" textLabel="Qfo-db-pwi" detailTextLabel="2yP-fP-iOe" style="IBUITableViewCellStyleSubtitle" id="3Gj-l7-gKz">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -65,7 +65,18 @@
                             <outlet property="delegate" destination="OxX-4D-fo9" id="x0f-lH-JfE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Agenda" id="TCC-Yj-BPw"/>
+                    <navigationItem key="navigationItem" title="Agenda" id="TCC-Yj-BPw">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="bXB-bu-0Dt">
+                            <connections>
+                                <action selector="toggleMove" destination="OxX-4D-fo9" id="8wa-wx-2om"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" tag="4" image="74-location.png" style="done" id="DrZ-Jd-MMt">
+                            <connections>
+                                <action selector="redAlert:" destination="OxX-4D-fo9" id="MxW-2l-sWH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="view" destination="FSf-8l-j6a" id="3nB-cH-wPn"/>
                     </connections>
@@ -111,6 +122,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="redAlert:" destination="hB1-wm-YtE" eventType="touchUpInside" id="HZa-uJ-9uf"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hours: " lineBreakMode="tailTruncation" minimumFontSize="12" id="CXP-61-mox">
                                 <rect key="frame" x="20" y="262" width="280" height="28"/>
@@ -145,8 +159,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="audioAlert:" destination="hB1-wm-YtE" eventType="touchUpInside" id="uDa-FF-aka"/>
+                                </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="apk-rq-cHw">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="apk-rq-cHw">
                                 <rect key="frame" x="14" y="125" width="293" height="129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -232,6 +249,7 @@
     </scenes>
     <resources>
         <image name="26-FGH2.jpg" width="450" height="300"/>
+        <image name="74-location.png" width="20" height="20"/>
         <image name="house.png" width="26" height="26"/>
         <image name="star.png" width="26" height="26"/>
         <image name="world.png" width="26" height="26"/>

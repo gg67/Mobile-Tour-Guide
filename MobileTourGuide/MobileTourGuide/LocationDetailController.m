@@ -54,9 +54,23 @@
 }
 
 #pragma mark - View lifecycle
+- (IBAction)redAlert:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh oh!"
+                                                    message:[NSString stringWithFormat:@"This is currently a prototype. Full version coming soon!"]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+- (IBAction)audioAlert:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh oh!"
+                                                    message:[NSString stringWithFormat:@"This is currently a prototype. Full version coming soon!"]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
 
 - (IBAction)videoPressed:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=H4NaxPOHLdQ"]];  
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:aVideo]];  
 }
 
 - (IBAction)addAgenda:(id)sender {

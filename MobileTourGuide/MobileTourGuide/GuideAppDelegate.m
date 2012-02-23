@@ -34,9 +34,9 @@
     Location *location5 = [[Location alloc] init];
     
     location1.name = @"Admissions";
-    location2.name = @"Kissam";
-    location3.name = @"Rand";
-    location4.name = @"Featheringill";
+    location2.name = @"Kissam Quad";
+    location3.name = @"Rand Hall";
+    location4.name = @"Featheringill Hall";
     location5.name = @"Rec Center";
     
     location1.category = @"Adminstrative";
@@ -45,13 +45,15 @@
     location4.category = @"Class Building";
     location5.category = @"Athletics / Recreation";
     
-    location1.description = @"Admissions description";
-    location2.description = @"Kissam description";
-    location3.description = @"Rand description";
+    location1.description = @"This 1993 addition to campus incorporates a portion of old West Side Hall, the university's first dining facility. Thousands of prospective students begin their Vanderbilt journeys with a tour of the campus which begins from this point. Nearly 20,000 applications to the university's first-year class of 1,650 are received and reviewed at this location.";
+    
+    location2.description = @"Almost every Vanderbilt student has heard rumors regarding Kissam Quadrangle, the residential area on the corner of 21st and West End. Whether it is that a homeless man has begun to live in Kissam or that they shampoo the carpets weekly in order to keep them clean, it is more than likely most Vanderbilt students view Kissam in a negative light. The six existing Kissam Quadrangle buildings, located near the intersection of West End Avenue and 21st Avenue South, will be demolished to make way for the two colleges that will be connected by a shared facility providing gathering space, “grab-and-go” dining options, a classroom, offices and meeting rooms.";
+    
+    location3.description = @"Sarratt Student Center and the adjoining Rand Hall are light and bright and humming with activity. With assorted dining options, the Vanderbilt Bookstore, the popular Baseball Glove Lounge for studying, art studios, art gallery, cinema, post office, meeting rooms, and offices, Sarratt and Rand pulse with the heartbeat of Vanderbilt.";
     
     location4.description = @"A distinctive tower marks the entrance of Featheringill Hall, one of four buildings housing the Vanderbilt School of Engineering. Inside, Featheringill features a three-story atrium, which serves as a focal for student interaction and social events, more than 50 teaching and research laboratories with the latest equpment and computer resources, and project rooms.";
     
-    location5.description = @"Rec description";
+    location5.description = @"It is the mission of the Office of Campus Recreation to assist in the development and education of the whole person. The Office achieves this goal by providing comprehensive fitness, recreation, and wellness programs in a state of the art facility to the diverse population of students and the Vanderbilt community at large. The wide variety of programs provide opportunities to develop the individual's positive self-esteem, relationships with others, and effective communication and leadership skills. The Student Recreation Center additionally serves as an avenue for individuals to achieve a stress free, holistic approach to a healthy lifestyle.";
     
     location1.image = @"Admissions image";
     location2.image = @"Kissam image";
@@ -59,11 +61,11 @@
     location4.image = @"FGH image";
     location5.image = @"Rec image";
 
-    location1.video = @"Admissions video";
-    location2.video = @"Kissam video";
-    location3.video = @"Rand video";
-    location4.video = @"FGH video";
-    location5.video = @"Rec video";
+    location1.video = @"http://www.youtube.com/watch?v=p0IoNXrtNGY";
+    location2.video = @"http://www.youtube.com/watch?v=HlbY6BUQ4Vg";
+    location3.video = @"http://www.youtube.com/watch?v=U5b8cymDlT4";
+    location4.video = @"http://www.youtube.com/watch?v=4JZQ4qgYvEY";
+    location5.video = @"http://www.youtube.com/watch?v=1wuxnc-yBK0";
     
     location1.hours = @"9 A.M. to 5 P.M.";
     location2.hours = @"9 A.M. to 5 P.M.";
