@@ -25,7 +25,7 @@
 @property BOOL onAgenda;
 
 @property (strong, nonatomic) IBOutlet UIButton *addAgenda;
-@property (strong, nonatomic) IBOutlet UILabel * alreadyOnAgenda;
+@property (strong, nonatomic) IBOutlet UILabel *alreadyOnAgenda;
 
 @property (copy, nonatomic) NSDictionary *selection;
 @property (weak, nonatomic) id delegate;

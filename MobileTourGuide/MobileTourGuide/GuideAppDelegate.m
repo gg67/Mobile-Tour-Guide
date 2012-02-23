@@ -55,11 +55,11 @@
     
     location5.description = @"It is the mission of the Office of Campus Recreation to assist in the development and education of the whole person. The Office achieves this goal by providing comprehensive fitness, recreation, and wellness programs in a state of the art facility to the diverse population of students and the Vanderbilt community at large. The wide variety of programs provide opportunities to develop the individual's positive self-esteem, relationships with others, and effective communication and leadership skills. The Student Recreation Center additionally serves as an avenue for individuals to achieve a stress free, holistic approach to a healthy lifestyle.";
     
-    location1.image = @"Admissions image";
-    location2.image = @"Kissam image";
-    location3.image = @"Rand image";
-    location4.image = @"FGH image";
-    location5.image = @"Rec image";
+    location1.image = @"http://www.unionky.edu/Images/Photos/Events/2007/Alumni_Gatherings/NKY_Nashville/BlairSkidmore.jpg";
+    location2.image = @"http://admissions.vanderbilt.edu/insidedores/manage/wp-content/uploads/Fall-Day-300x300.jpg";
+    location3.image = @"https://img-s.foursquare.com/derived_pix/KV3D3IMOOUYZBQA4PUKK224FCF0XKV0JS4RI3FVCEN5DZABR_300x300.jpg";
+    location4.image = @"http://www.vanderbilt.edu/studentcenters/wp-content/uploads/FEA138.jpg?quick_view=1";
+    location5.image = @"http://farm3.staticflickr.com/2528/4026583256_453db1129d_o.jpg";
 
     location1.video = @"http://www.youtube.com/watch?v=p0IoNXrtNGY";
     location2.video = @"http://www.youtube.com/watch?v=HlbY6BUQ4Vg";
@@ -67,11 +67,11 @@
     location4.video = @"http://www.youtube.com/watch?v=4JZQ4qgYvEY";
     location5.video = @"http://www.youtube.com/watch?v=1wuxnc-yBK0";
     
-    location1.hours = @"9 A.M. to 5 P.M.";
-    location2.hours = @"9 A.M. to 5 P.M.";
-    location3.hours = @"9 A.M. to 5 P.M.";
-    location4.hours = @"9 A.M. to 5 P.M.";
-    location5.hours = @"9 A.M. to 5 P.M.";
+    location1.hours = @"10 AM to 5 PM Mon - Sat";
+    location2.hours = @"8 AM to 8 PM every day";
+    location3.hours = @"7 AM to 12 PM";
+    location4.hours = @"9 AM to 5 PM";
+    location5.hours = @"5:30 AM to 11 PM every day";
     
     [locations addObject:location1];
     [locations addObject:location2];
@@ -85,9 +85,9 @@
     UINavigationController *navigationController = 
     [[tabBarController viewControllers] objectAtIndex:0];
 	
-    AgendaViewController *locationsViewController = 
+    AgendaViewController *locationViewController = 
     [[navigationController viewControllers] objectAtIndex:0];
-	locationsViewController.locations = locations;
+	locationViewController.locations = locations;
     
     return YES;
 }
