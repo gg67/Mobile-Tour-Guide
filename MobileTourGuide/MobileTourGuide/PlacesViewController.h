@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlacesViewController : UITableViewController
+@interface PlacesViewController : UIViewController
 @end

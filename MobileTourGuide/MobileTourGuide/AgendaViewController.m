@@ -26,12 +26,6 @@
 {
     [self.tableView reloadData];
     [super viewDidLoad];
-//    UIBarButtonItem *moveButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit"
-//                                                                   style:UIBarButtonItemStyleBordered 
-//                                                                  target:self
-//                                                                  action:@selector(toggleMove)];
-//    self.navigationItem.leftBarButtonItem = moveButton;
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload
@@ -127,7 +121,7 @@
 
 - (IBAction)redAlert:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh oh!"
-                                                    message:[NSString stringWithFormat:@"This is currently a prototype. Full version coming soon!"]
+                                                    message:[NSString stringWithFormat:@"This is currently a simulated prototype. This button would activate Check In functionality!"]
                                                    delegate:nil
                                           cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
@@ -146,9 +140,11 @@
     [self.tableView setEditing:!self.tableView.editing animated:YES];
     if (self.tableView.editing) {
         [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
+        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
     }
     else {
         [self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
+        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStylePlain];
     }
 }
 
@@ -163,14 +159,16 @@
         Location *loc = [self.locations objectAtIndex:indexPath.row];
         NSDictionary *selection;
         if (editedSelection == nil) {
-            selection = [NSDictionary dictionaryWithObjectsAndKeys:
-                                       indexPath, @"indexPath",
-                                       loc, @"location",
-                                       nil];
+            loc.onAgenda = NO;
         }
         else {
-            selection = editedSelection;
+            Location *temp = [editedSelection valueForKey:@"location"];
+            loc.onAgenda = temp.onAgenda;
         }
+        selection = [NSDictionary dictionaryWithObjectsAndKeys:
+                     indexPath, @"indexPath",
+                     loc, @"location",
+                     nil];
        
         [destination setValue:selection forKey:@"selection"];
         

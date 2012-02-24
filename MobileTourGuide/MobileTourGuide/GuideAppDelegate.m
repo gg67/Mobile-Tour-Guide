@@ -47,7 +47,7 @@
     
     location1.description = @"This 1993 addition to campus incorporates a portion of old West Side Hall, the university's first dining facility. Thousands of prospective students begin their Vanderbilt journeys with a tour of the campus which begins from this point. Nearly 20,000 applications to the university's first-year class of 1,650 are received and reviewed at this location.";
     
-    location2.description = @"Almost every Vanderbilt student has heard rumors regarding Kissam Quadrangle, the residential area on the corner of 21st and West End. Whether it is that a homeless man has begun to live in Kissam or that they shampoo the carpets weekly in order to keep them clean, it is more than likely most Vanderbilt students view Kissam in a negative light. The six existing Kissam Quadrangle buildings, located near the intersection of West End Avenue and 21st Avenue South, will be demolished to make way for the two colleges that will be connected by a shared facility providing gathering space, “grab-and-go” dining options, a classroom, offices and meeting rooms.";
+    location2.description = [NSString stringWithFormat: @"Almost every Vanderbilt student has heard rumors regarding Kissam Quadrangle, the residential area on the corner of 21st and West End. Whether it is that a homeless man has begun to live in Kissam or that they shampoo the carpets weekly in order to keep them clean, it is more than likely most Vanderbilt students view Kissam in a negative light.\n\nThe six existing Kissam Quadrangle buildings, located near the intersection of West End Avenue and 21st Avenue South, will be demolished to make way for the two colleges that will be connected by a shared facility providing gathering space, “grab-and-go” dining options, a classroom, offices and meeting rooms."];
     
     location3.description = @"Sarratt Student Center and the adjoining Rand Hall are light and bright and humming with activity. With assorted dining options, the Vanderbilt Bookstore, the popular Baseball Glove Lounge for studying, art studios, art gallery, cinema, post office, meeting rooms, and offices, Sarratt and Rand pulse with the heartbeat of Vanderbilt.";
     
@@ -62,15 +62,15 @@
     location5.image = @"http://farm3.staticflickr.com/2528/4026583256_453db1129d_o.jpg";
 
     location1.video = @"http://www.youtube.com/watch?v=p0IoNXrtNGY";
-    location2.video = @"http://www.youtube.com/watch?v=HlbY6BUQ4Vg";
+    location2.video = @"http://www.youtube.com/";
     location3.video = @"http://www.youtube.com/watch?v=U5b8cymDlT4";
     location4.video = @"http://www.youtube.com/watch?v=4JZQ4qgYvEY";
     location5.video = @"http://www.youtube.com/watch?v=1wuxnc-yBK0";
     
     location1.hours = @"10 AM to 5 PM Mon - Sat";
     location2.hours = @"8 AM to 8 PM every day";
-    location3.hours = @"7 AM to 12 PM";
-    location4.hours = @"9 AM to 5 PM";
+    location3.hours = @"7 AM to 12 PM weekdays";
+    location4.hours = @"9 AM to 5 PM every day";
     location5.hours = @"5:30 AM to 11 PM every day";
     
     [locations addObject:location1];
@@ -91,6 +91,7 @@
     
     return YES;
 }
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
