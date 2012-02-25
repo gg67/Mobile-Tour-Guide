@@ -8,8 +8,10 @@
 
 #import "LocationDetailController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ImageViewController.h"
 
 @implementation LocationDetailController
+@synthesize photo;
 
 @synthesize indexSel, currentLoc, delegate, selection;
 @synthesize description, hours, addAgenda, alreadyOnAgenda;
@@ -19,7 +21,7 @@
     [super viewDidLoad];
     
     //The rounded corner part, where you specify your view's corner radius:
-    description.layer.cornerRadius = 9;
+    description.layer.cornerRadius = 11;
     description.clipsToBounds = YES;
     description.layer.borderColor = [[UIColor blackColor] CGColor];
     
@@ -42,6 +44,8 @@
         addAgenda.hidden = NO;
     }
     
+
+    
     //[[self view] setBackgroundColor:[UIColor yellowColor]];
     //colorWithPatternImage:[UIImage imageNamed:@"/Users/Scott/Downloads/linen.jpg"]
 }
@@ -57,6 +61,7 @@
     self.addAgenda = nil;
     self.alreadyOnAgenda = nil;
     //self.myImage = nil;
+    [self setPhoto:nil];
     [super viewDidUnload];
 }
 
@@ -95,6 +100,19 @@
     [agenda addObject:currentLoc];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.photo.adjustsImageWhenHighlighted = NO;
+    
+    NSData *imgUrl = [NSData dataWithContentsOfURL:[NSURL URLWithString:currentLoc.image]];
+    self.photo.layer.cornerRadius = 9;
+    self.photo.clipsToBounds = YES;
+    [photo setImage:[UIImage imageWithData:imgUrl]
+           forState:UIControlStateNormal];
+    [photo setImage:[UIImage imageWithData:imgUrl]
+           forState:UIControlStateHighlighted];
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -123,5 +141,14 @@
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender { 
+    
+    ImageViewController *destination = segue.destinationViewController;
+    destination.title = currentLoc.name;
+    [destination setValue:currentLoc.image forKey:@"image"];
+    
+}
+
 
 @end

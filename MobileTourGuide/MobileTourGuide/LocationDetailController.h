@@ -16,6 +16,8 @@
 @property (copy, nonatomic) NSDictionary *selection;
 @property (weak, nonatomic) id delegate;
 
+
+@property (weak, nonatomic) IBOutlet UIButton *photo;
 @property (strong, nonatomic) IBOutlet UITextView *description;
 @property (strong, nonatomic) IBOutlet UILabel *hours;
 @property (strong, nonatomic) IBOutlet UIButton *addAgenda;

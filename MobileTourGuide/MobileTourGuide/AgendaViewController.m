@@ -188,6 +188,7 @@
         [destination setValue:selection forKey:@"selection"];
         
         destination.title = loc.name;
+    
     }
     
 }

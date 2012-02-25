@@ -10,6 +10,7 @@
 		D20B7AF914F4A79B00A37A53 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D20B7AF814F4A79B00A37A53 /* Icon.png */; };
 		D20B7AFC14F4A7D300A37A53 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D20B7AFB14F4A7D300A37A53 /* Icon.png */; };
 		D20B7B0214F55A1000A37A53 /* 26-FGH2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D20B7B0114F55A1000A37A53 /* 26-FGH2.jpg */; };
+		D223F72414F95AFB00DE2B6B /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D223F72314F95AFB00DE2B6B /* ImageViewController.m */; };
 		D270110814F6293C000B49C3 /* designkode-iphone-toolbar-button-icons.png in Resources */ = {isa = PBXBuildFile; fileRef = D270110714F6293C000B49C3 /* designkode-iphone-toolbar-button-icons.png */; };
 		D27011D414F62A2F000B49C3 /* 00-Read me first - license.txt in Resources */ = {isa = PBXBuildFile; fileRef = D270110B14F62A2E000B49C3 /* 00-Read me first - license.txt */; };
 		D27011D514F62A2F000B49C3 /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = D270110C14F62A2E000B49C3 /* 01-refresh.png */; };
@@ -245,6 +246,8 @@
 		D20B7AF814F4A79B00A37A53 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		D20B7AFB14F4A7D300A37A53 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		D20B7B0114F55A1000A37A53 /* 26-FGH2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "26-FGH2.jpg"; path = "../../../../../../../../../Downloads/26-FGH2.jpg"; sourceTree = "<group>"; };
+		D223F72214F95AFB00DE2B6B /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		D223F72314F95AFB00DE2B6B /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		D270110714F6293C000B49C3 /* designkode-iphone-toolbar-button-icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "designkode-iphone-toolbar-button-icons.png"; sourceTree = "<group>"; };
 		D270110B14F62A2E000B49C3 /* 00-Read me first - license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "00-Read me first - license.txt"; sourceTree = "<group>"; };
 		D270110C14F62A2E000B49C3 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh.png"; sourceTree = "<group>"; };
@@ -720,6 +723,8 @@
 		D2B08B6714F3536700E04BE8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D223F72214F95AFB00DE2B6B /* ImageViewController.h */,
+				D223F72314F95AFB00DE2B6B /* ImageViewController.m */,
 				D2F4A68914F3532D00EDD0B6 /* LocationDetailController.m */,
 				D2F4A68814F3532D00EDD0B6 /* LocationDetailController.h */,
 				D2C5A0C314ED8D6300F365C1 /* TourViewController.h */,
@@ -1108,6 +1113,7 @@
 				D2B9C9F714F0A49E005AB720 /* PlacesViewController.m in Sources */,
 				D2F4A68A14F3532D00EDD0B6 /* LocationDetailController.m in Sources */,
 				D2B08B7B14F41C4400E04BE8 /* Location.m in Sources */,
+				D223F72414F95AFB00DE2B6B /* ImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
