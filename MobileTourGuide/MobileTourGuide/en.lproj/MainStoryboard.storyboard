@@ -109,7 +109,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="26-FGH2.jpg" id="bgr-4H-7Ab">
+                            <imageView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" image="26-FGH2.jpg" id="bgr-4H-7Ab">
                                 <rect key="frame" x="20" y="20" width="138" height="95"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -145,7 +145,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hours: " lineBreakMode="tailTruncation" minimumFontSize="12" id="CXP-61-mox">
-                                <rect key="frame" x="20" y="262" width="280" height="28"/>
+                                <rect key="frame" x="20" y="271" width="280" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -181,15 +181,15 @@
                                     <action selector="audioAlert:" destination="hB1-wm-YtE" eventType="touchUpInside" id="uDa-FF-aka"/>
                                 </connections>
                             </button>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" editable="NO" id="apk-rq-cHw">
-                                <rect key="frame" x="14" y="123" width="293" height="131"/>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" indicatorStyle="black" editable="NO" id="apk-rq-cHw">
+                                <rect key="frame" x="14" y="128" width="291" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <rect key="contentStretch" x="0.050000000000000017" y="0.0" width="1" height="1"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -225,11 +225,24 @@
                         <outlet property="alreadyOnAgenda" destination="g1Z-C9-H4f" id="35N-FU-2I7"/>
                         <outlet property="description" destination="apk-rq-cHw" id="FxY-EJ-tUr"/>
                         <outlet property="hours" destination="CXP-61-mox" id="Fr2-OQ-Bdq"/>
-                        <outlet property="view" destination="GFM-as-64h" id="ZvE-js-ah2"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1776" y="234"/>
+        </scene>
+        <scene sceneID="5rs-2s-CyT">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="84a-GA-obB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Ecg-fK-z2P" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C14-cf-iFA">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CKg-bB-mcs"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2284" y="234"/>
         </scene>
         <scene sceneID="TPd-2H-gbv">
             <objects>
@@ -248,37 +261,6 @@
             </objects>
             <point key="canvasLocation" x="727" y="234"/>
         </scene>
-        <scene sceneID="yaw-8Z-CNn">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GuU-JV-GqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="Third Scene" id="uL6-y7-8ct" customClass="PlacesViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bFC-Oh-LEB">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Coming soon!" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="3rX-ac-24Z">
-                                <rect key="frame" x="66" y="170" width="188" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="More locations to be added." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Pu3-B9-ixK">
-                                <rect key="frame" x="66" y="206" width="188" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Places" image="house.png" id="jYA-WV-aLB"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="727" y="812"/>
-        </scene>
         <scene sceneID="15">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -292,11 +274,80 @@
                     <connections>
                         <segue destination="pu8-DZ-24p" kind="relationship" relationship="viewControllers" id="dA0-4d-ivE"/>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
-                        <segue destination="uL6-y7-8ct" kind="relationship" relationship="viewControllers" id="8j4-0a-8KF"/>
+                        <segue destination="Do6-R1-E5E" kind="relationship" relationship="viewControllers" id="GCF-bQ-M0w"/>
                     </connections>
                 </tabBarController>
             </objects>
             <point key="canvasLocation" x="112" y="234"/>
+        </scene>
+        <scene sceneID="Phn-ml-9d3">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VfE-Qh-Kdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="Do6-R1-E5E" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Places" image="house.png" id="bcn-DN-C6x"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DXq-bQ-evz">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.78226642219999998" green="0.60547127629999997" blue="0.1471258" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wWS-YD-Q2B" kind="relationship" relationship="rootViewController" id="ap0-b6-Byc"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="727" y="844"/>
+        </scene>
+        <scene sceneID="oNz-cQ-VLF">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V05-yv-NbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="wWS-YD-Q2B" customClass="PlacesViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="K0k-W6-Gri">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationCell" textLabel="UFQ-W6-xgF" style="IBUITableViewCellStyleDefault" id="AEl-zs-WAl">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UFQ-W6-xgF">
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="hB1-wm-YtE" kind="push" id="koy-DD-ple"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wWS-YD-Q2B" id="vDf-6r-req"/>
+                            <outlet property="delegate" destination="wWS-YD-Q2B" id="Udx-ZP-A2w"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Places" id="Om6-W8-xbV">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="3UO-2I-DIX"/>
+                        <barButtonItem key="rightBarButtonItem" tag="4" image="74-location-white.png" style="plain" id="Tzx-g2-XUI">
+                            <color key="tintColor" red="0.3641187662" green="0.57966455250000004" blue="0.98421556119999998" alpha="0.56999999999999995" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="redAlert:" destination="wWS-YD-Q2B" id="Io0-7w-WZh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="view" destination="K0k-W6-Gri" id="SWR-Sd-3bD"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1267" y="844"/>
         </scene>
     </scenes>
     <resources>
@@ -323,7 +374,7 @@
                 <relationship kind="outlet" name="hours" candidateClass="UILabel"/>
             </relationships>
         </class>
-        <class className="PlacesViewController" superclassName="UIViewController">
+        <class className="PlacesViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesViewController.h"/>
         </class>
         <class className="TourViewController" superclassName="UIViewController">
@@ -335,4 +386,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="6vU-tz-7BO"/>
+    </inferredMetricsTieBreakers>
 </document>

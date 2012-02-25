@@ -214,6 +214,7 @@
 		D270129C14F62A2F000B49C3 /* 99-umbrella.png in Resources */ = {isa = PBXBuildFile; fileRef = D27011D314F62A2E000B49C3 /* 99-umbrella.png */; };
 		D280EF7314F6D2C100F14432 /* 74-location-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D280EF7214F6D2BD00F14432 /* 74-location-1.jpg */; };
 		D2A752C614F6E042005B920C /* 74-location-white.png in Resources */ = {isa = PBXBuildFile; fileRef = D2A752C514F6E042005B920C /* 74-location-white.png */; };
+		D2A752CA14F86517005B920C /* Fall-Day-300x300.png in Resources */ = {isa = PBXBuildFile; fileRef = D2A752C914F86517005B920C /* Fall-Day-300x300.png */; };
 		D2B08B7B14F41C4400E04BE8 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B08B7A14F41C4400E04BE8 /* Location.m */; };
 		D2B08B8114F45ED000E04BE8 /* 1326171813652.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B08B8014F45ED000E04BE8 /* 1326171813652.png */; };
 		D2B9C9EF14F0A3D6005AB720 /* world@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B9C9EE14F0A3D6005AB720 /* world@2x.png */; };
@@ -448,6 +449,7 @@
 		D27011D314F62A2E000B49C3 /* 99-umbrella.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "99-umbrella.png"; sourceTree = "<group>"; };
 		D280EF7214F6D2BD00F14432 /* 74-location-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "74-location-1.jpg"; sourceTree = "<group>"; };
 		D2A752C514F6E042005B920C /* 74-location-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "74-location-white.png"; sourceTree = "<group>"; };
+		D2A752C914F86517005B920C /* Fall-Day-300x300.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fall-Day-300x300.png"; sourceTree = "<group>"; };
 		D2B08B7914F41C4400E04BE8 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		D2B08B7A14F41C4400E04BE8 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		D2B08B8014F45ED000E04BE8 /* 1326171813652.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1326171813652.png; sourceTree = "<group>"; };
@@ -744,6 +746,7 @@
 		D2B08B6914F3538E00E04BE8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D2A752C914F86517005B920C /* Fall-Day-300x300.png */,
 				D270110A14F62A2E000B49C3 /* icons */,
 				D270110714F6293C000B49C3 /* designkode-iphone-toolbar-button-icons.png */,
 				D2E1BCB114F5FD530071C759 /* linen.jpg */,
@@ -1087,6 +1090,7 @@
 				D270129C14F62A2F000B49C3 /* 99-umbrella.png in Resources */,
 				D280EF7314F6D2C100F14432 /* 74-location-1.jpg in Resources */,
 				D2A752C614F6E042005B920C /* 74-location-white.png in Resources */,
+				D2A752CA14F86517005B920C /* Fall-Day-300x300.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

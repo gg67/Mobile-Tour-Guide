@@ -13,13 +13,11 @@
 
 @property (strong, nonatomic) NSMutableArray *locations;
 
-@property (strong, nonatomic) NSString *aName;
-@property (strong, nonatomic) NSString *aCategory;
-@property (strong, nonatomic) NSString *aDescription;
-@property (strong, nonatomic) NSString *aVideo;
-@property (strong, nonatomic) NSString *anImage;
-@property (strong, nonatomic) NSString *anHours;
 @property (strong, nonatomic) NSDictionary *editedSelection;
+
+@property (strong, nonatomic) Location *myLoc;
+
+@property BOOL haveVisited;
 
 @property (strong, nonatomic) NSIndexPath *indexSel;
 

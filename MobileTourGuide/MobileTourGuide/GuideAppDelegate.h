@@ -13,5 +13,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *navController;
 @property (strong, nonatomic) NSMutableArray *locations;
+@property (strong, nonatomic) NSMutableArray *agenda;
 
 @end

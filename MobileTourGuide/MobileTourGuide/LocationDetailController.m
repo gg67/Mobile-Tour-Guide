@@ -7,12 +7,9 @@
 //
 
 #import "LocationDetailController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation LocationDetailController
-
-//@interface LocationDetailController
-//
-//@end
 
 @synthesize indexSel, currentLoc, delegate, selection;
 @synthesize description, hours, addAgenda, alreadyOnAgenda;
@@ -21,15 +18,21 @@
 
     [super viewDidLoad];
     
+    //The rounded corner part, where you specify your view's corner radius:
+    description.layer.cornerRadius = 9;
+    description.clipsToBounds = YES;
+    description.layer.borderColor = [[UIColor blackColor] CGColor];
+    
     self.currentLoc = [selection valueForKey:@"location"];
 
+    // Set description text
     self.description.text = [currentLoc description];
     
     // Set the hours of operation
     NSString *newHours = @"Hours: ";
     self.hours.text = [newHours stringByAppendingString:currentLoc.hours];
     
-    
+    // Check if onAgenda.
     if (currentLoc.onAgenda) {
         alreadyOnAgenda.hidden = NO;
         addAgenda.hidden = YES;
@@ -84,9 +87,12 @@
 }
 
 - (IBAction)addAgenda:(id)sender {
+    NSMutableArray *agenda = [selection valueForKey:@"agenda"];
     alreadyOnAgenda.hidden = NO;
     addAgenda.hidden = YES;
     currentLoc.onAgenda = YES;
+    NSLog(@"added");
+    [agenda addObject:currentLoc];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -104,6 +110,7 @@
                                      currentLoc, @"location",
                                      nil];
     [delegate setValue:editedSelection forKey:@"editedSelection"];
+    [delegate setValue:currentLoc forKey:@"myLoc"];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

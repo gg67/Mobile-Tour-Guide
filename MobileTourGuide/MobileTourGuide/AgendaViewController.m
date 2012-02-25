@@ -12,7 +12,7 @@
 
 
 @implementation AgendaViewController
-@synthesize locations, aName, aCategory, aDescription, aVideo, anImage, anHours, indexSel, editedSelection;
+@synthesize locations, indexSel, myLoc, editedSelection, haveVisited;
 
 - (void)didReceiveMemoryWarning
 {
@@ -22,8 +22,25 @@
 
 #pragma mark - View lifecycle
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        haveVisited = NO;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
+    if (haveVisited) {
+        NSIndexPath *index = [editedSelection valueForKey:@"indexPath"];
+        BOOL isOnAgenda = [[editedSelection valueForKey:@"location"] onAgenda];
+        Location *oldLoc = [self.locations objectAtIndex:index.row];
+        oldLoc.onAgenda = isOnAgenda;
+    }
+    
+    haveVisited = YES;
+
     [self.tableView reloadData];
     [super viewDidLoad];
 }
@@ -45,6 +62,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self.tableView reloadData];
     [super viewDidAppear:animated];
 }
 
@@ -88,7 +106,6 @@
     NSString *identifier = @"LocationCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
-    
     Location *location = [self.locations objectAtIndex:indexPath.row];
     location.onAgenda = YES;
     
@@ -102,10 +119,13 @@
 {
 	if (editingStyle == UITableViewCellEditingStyleDelete)
 	{
+        Location *location = [self.locations objectAtIndex:indexPath.row];
+        location.onAgenda = NO;
 		[self.locations removeObjectAtIndex:indexPath.row];
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	}   
 }
+
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
     NSUInteger fromRow = [fromIndexPath row];
@@ -157,14 +177,9 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         
         Location *loc = [self.locations objectAtIndex:indexPath.row];
+        
         NSDictionary *selection;
-        if (editedSelection == nil) {
-            loc.onAgenda = NO;
-        }
-        else {
-            Location *temp = [editedSelection valueForKey:@"location"];
-            loc.onAgenda = temp.onAgenda;
-        }
+        
         selection = [NSDictionary dictionaryWithObjectsAndKeys:
                      indexPath, @"indexPath",
                      loc, @"location",

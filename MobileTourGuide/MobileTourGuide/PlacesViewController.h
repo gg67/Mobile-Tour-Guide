@@ -7,6 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Location.h"
 
-@interface PlacesViewController : UIViewController
+@interface PlacesViewController : UITableViewController
+
+@property (strong, nonatomic) NSMutableArray *locations;
+@property (strong, nonatomic) NSDictionary *editedSelection;
+@property (strong, nonatomic) NSIndexPath *indexSel;
+@property (strong, nonatomic) NSMutableArray *agenda;
+
 @end

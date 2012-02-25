@@ -18,4 +18,5 @@
 @property (strong, nonatomic) NSString *hours;
 @property BOOL onAgenda;
 
+
 @end

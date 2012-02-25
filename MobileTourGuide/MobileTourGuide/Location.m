@@ -18,4 +18,12 @@
 @synthesize hours = _hours;
 @synthesize onAgenda;
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        onAgenda = NO;
+    }
+    return self;
+}
+
 @end

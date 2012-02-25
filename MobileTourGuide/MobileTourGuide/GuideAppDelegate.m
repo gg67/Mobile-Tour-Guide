@@ -8,11 +8,13 @@
 
 #import "GuideAppDelegate.h"
 #import "AgendaViewController.h"
+#import "PlacesViewController.h"
 #import "Location.h"
 
 @implementation GuideAppDelegate 
 
 @synthesize locations;
+@synthesize agenda;
 @synthesize window = _window;
 @synthesize navController;
 
@@ -26,6 +28,7 @@
 //    self.navController = [[UINavigationController alloc] initWithRootViewController:agenda];
 //    [self.window addSubview:navController.view];
     
+    agenda = [NSMutableArray arrayWithCapacity:3];
     locations = [NSMutableArray arrayWithCapacity:5];
     Location *location1 = [[Location alloc] init];
     Location *location2 = [[Location alloc] init];
@@ -79,15 +82,27 @@
     [locations addObject:location4];
     [locations addObject:location5];
     
+    [agenda addObject:location1];
+    [agenda addObject:location2];
+    [agenda addObject:location3];
+    
     UITabBarController *tabBarController = 
     (UITabBarController *)self.window.rootViewController;
 	
     UINavigationController *navigationController = 
     [[tabBarController viewControllers] objectAtIndex:0];
 	
-    AgendaViewController *locationViewController = 
+    AgendaViewController *agendaViewController = 
     [[navigationController viewControllers] objectAtIndex:0];
-	locationViewController.locations = locations;
+	agendaViewController.locations = agenda;
+    
+    UINavigationController *placesNavigationController = 
+    [[tabBarController viewControllers] objectAtIndex:2];
+    
+    PlacesViewController *placesViewController =
+    [[placesNavigationController viewControllers] objectAtIndex:0];
+    placesViewController.locations = locations;
+    placesViewController.agenda = agenda;
     
     return YES;
 }
