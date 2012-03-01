@@ -12,7 +12,8 @@
 
 @implementation PlacesViewController
 
-@synthesize locations, editedSelection, indexSel, agenda;
+@synthesize locations, editedSelection, indexSel, agenda, name;
+@synthesize selection;
 
 - (void)didReceiveMemoryWarning
 {
@@ -25,6 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if ([selection valueForKey:@"location"] != nil) {
+        locations = [selection valueForKey:@"location"];
+        agenda = [selection valueForKey:@"agenda"];
+    }
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -73,14 +78,22 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return [self.locations count];
+//    // Return the number of rows in the section.
+//    for (size_t i = 0; i == [locations count]; i++) {
+//        if ([[locations objectAtIndex:i] category] == @"Administrative") {
+//            
+//        }
+//    }
+//    NSDictionary *dictionary = [locations objectAtIndex:section];
+//    NSArray *array = [dictionary objectForKey:@"Category"];
+//    return [array count];
+    return [locations count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     NSString *identifier = @"LocationCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+
     
     Location *location = [self.locations objectAtIndex:indexPath.row];
     
@@ -126,15 +139,15 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         
         Location *loc = [self.locations objectAtIndex:indexPath.row];
-        NSDictionary *selection;
+        NSDictionary *newSelection;
         
-        selection = [NSDictionary dictionaryWithObjectsAndKeys:
+        newSelection = [NSDictionary dictionaryWithObjectsAndKeys:
                      indexPath, @"indexPath",
                      loc, @"location",
                      agenda, @"agenda",
                      nil];
         
-        [destination setValue:selection forKey:@"selection"];
+        [destination setValue:newSelection forKey:@"selection"];
         
         destination.title = loc.name;
     }

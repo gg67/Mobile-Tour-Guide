@@ -12,8 +12,10 @@
 @interface PlacesViewController : UITableViewController
 
 @property (strong, nonatomic) NSMutableArray *locations;
+@property (strong, nonatomic) NSMutableArray *selection;
 @property (strong, nonatomic) NSDictionary *editedSelection;
 @property (strong, nonatomic) NSIndexPath *indexSel;
 @property (strong, nonatomic) NSMutableArray *agenda;
+@property (strong, nonatomic) NSString *name;
 
 @end

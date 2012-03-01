@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Location.h"
 
-@interface TourViewController : UIViewController
+@interface TourViewController : UITableViewController
+
+@property (strong, nonatomic) NSMutableArray *tourList;
 
 @end

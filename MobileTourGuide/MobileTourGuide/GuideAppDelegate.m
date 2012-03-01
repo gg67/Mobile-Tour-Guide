@@ -9,14 +9,16 @@
 #import "GuideAppDelegate.h"
 #import "AgendaViewController.h"
 #import "PlacesViewController.h"
+#import "TourViewController.h"
 #import "Location.h"
 
 @implementation GuideAppDelegate 
 
 @synthesize locations;
 @synthesize agenda;
-@synthesize window = _window;
+@synthesize tours;
 @synthesize navController;
+@synthesize window = _window;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -30,6 +32,7 @@
     
     agenda = [NSMutableArray arrayWithCapacity:3];
     locations = [NSMutableArray arrayWithCapacity:5];
+    tours = [NSMutableArray arrayWithCapacity:3];
     Location *location1 = [[Location alloc] init];
     Location *location2 = [[Location alloc] init];
     Location *location3 = [[Location alloc] init];
@@ -86,6 +89,18 @@
     [agenda addObject:location2];
     [agenda addObject:location3];
     
+    PlacesViewController *tourOne = [[PlacesViewController alloc] init];
+    [tours addObject:tourOne];
+    tourOne.name = @"Tour One";
+    tourOne.locations = locations;
+    tourOne.agenda = agenda;
+    
+    PlacesViewController *tourTwo = [[PlacesViewController alloc] init];
+    [tours addObject:tourTwo];
+    tourTwo.name = @"Tour Two";
+    tourTwo.locations = locations;
+    tourTwo.agenda = agenda;
+    
     UITabBarController *tabBarController = 
     (UITabBarController *)self.window.rootViewController;
 	
@@ -95,6 +110,13 @@
     AgendaViewController *agendaViewController = 
     [[navigationController viewControllers] objectAtIndex:0];
 	agendaViewController.locations = agenda;
+    
+    UINavigationController *tourNavController =
+    [[tabBarController viewControllers] objectAtIndex:1];
+    
+    TourViewController *tourViewController =
+    [[tourNavController viewControllers] objectAtIndex:0];
+    tourViewController.tourList = tours;
     
     UINavigationController *placesNavigationController = 
     [[tabBarController viewControllers] objectAtIndex:2];

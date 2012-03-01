@@ -7,8 +7,10 @@
 //
 
 #import "TourViewController.h"
+#import "PlacesViewController.h"
 
 @implementation TourViewController
+@synthesize tourList;
 
 - (void)didReceiveMemoryWarning
 {
@@ -56,5 +58,85 @@
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
+
+
+#pragma mark -
+#pragma mark Table Data Source Methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [tourList count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *identifier = @"LocationCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    
+    PlacesViewController *tour = [self.tourList objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = tour.name;
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender { 
+    
+    PlacesViewController *destination = segue.destinationViewController;
+    
+    if ([destination respondsToSelector:@selector(setSelection:)]) {
+        // prepare selection info
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        
+        PlacesViewController *tour = [self.tourList objectAtIndex:indexPath.row];
+        NSDictionary *selection;
+        
+        selection = [NSDictionary dictionaryWithObjectsAndKeys:
+                     indexPath, @"indexPath",
+                     tour.locations, @"location",
+                     tour.agenda, @"agenda",
+                     nil];
+        
+        [destination setValue:selection forKey:@"selection"];
+        
+        destination.title = tour.name;
+    }
+}
+
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//	if (editingStyle == UITableViewCellEditingStyleDelete)
+//	{
+//        PlacesViewController *location = [self.locations objectAtIndex:indexPath.row];
+//        location.onAgenda = NO;
+//		[self.locations removeObjectAtIndex:indexPath.row];
+//		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//	}   
+//}
+
+
+//- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+//    NSUInteger fromRow = [fromIndexPath row];
+//    NSUInteger toRow = [toIndexPath row];
+//    id object = [tourList objectAtIndex:fromRow];
+//    [tourList removeObjectAtIndex:fromRow];
+//    [tourList insertObject:object atIndex:toRow];
+//}
+//
+//- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return YES;
+//}
+
 
 @end
