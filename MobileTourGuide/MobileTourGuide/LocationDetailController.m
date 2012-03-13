@@ -90,6 +90,10 @@
     self.photo.adjustsImageWhenHighlighted = NO;
     self.photo.layer.cornerRadius = 9;
     self.photo.clipsToBounds = YES;
+    
+    self.photo.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.photo.layer.borderWidth = .5;
+    
     [photo setImage:[UIImage imageNamed:@"02-redo.png"] forState:UIControlStateNormal];
     
     NSData *imgUrl = [NSData dataWithContentsOfURL:[NSURL URLWithString:currentLoc.image]];

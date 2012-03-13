@@ -9,11 +9,12 @@
 #import "PlacesViewController.h"
 #import "Location.h"
 #import "LocationDetailController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation PlacesViewController
+@synthesize description;
 
-@synthesize locations, editedSelection, indexSel, agenda, name;
-@synthesize selection;
+@synthesize locations, editedSelection, indexSel, agenda, name, selection, isSectioned;
 
 - (void)didReceiveMemoryWarning
 {
@@ -25,16 +26,28 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    
     if ([selection valueForKey:@"location"] != nil) {
         locations = [selection valueForKey:@"location"];
         agenda = [selection valueForKey:@"agenda"];
+        isSectioned = (BOOL)[selection valueForKey:@"isSectioned"];
     }
+    
+    if (!isSectioned) {
+        //The rounded corner part, where you specify your view's corner radius:
+        description.layer.cornerRadius = 11;
+        description.clipsToBounds = YES;
+        description.layer.borderColor = [[UIColor grayColor] CGColor];
+        description.layer.borderWidth = .5;
+    }
+    
+    [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload
 {
+    [self setDescription:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -73,31 +86,74 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    if (isSectioned) {
+        return [locations count];
+    }
+    else {
+        return 1;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    // Return the number of rows in the section.
-//    for (size_t i = 0; i == [locations count]; i++) {
-//        if ([[locations objectAtIndex:i] category] == @"Administrative") {
-//            
-//        }
-//    }
-//    NSDictionary *dictionary = [locations objectAtIndex:section];
-//    NSArray *array = [dictionary objectForKey:@"Category"];
-//    return [array count];
-    return [locations count];
+    // Return the number of rows in the section.
+    if (isSectioned) {
+        return [[locations objectAtIndex:section] count];
+    }
+    else {
+        size_t count = 0;
+        for (size_t i = 0; i < (size_t)[locations count]; i++) {
+            for (size_t j = 0; j < (size_t)[[locations objectAtIndex:i] count]; j++) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (isSectioned) {
+        if (section == 0)
+            return @"Administrative";
+        if (section == 1)
+            return @"Residence Hall";
+        if (section == 2)
+            return @"Dining Hall";
+        if (section == 3)
+            return @"Class Building";
+        if (section == 4)
+            return @"Athletics / Recreation";
+        else
+            return @"Wait, wtf did you do?";
+    }
+    else {
+        return nil;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier = @"LocationCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
 
+    Location *location;
+    if (isSectioned) {
+        NSMutableArray *category = [locations objectAtIndex:[indexPath section]];
+        location = [category objectAtIndex:[indexPath row]];
+    }
+    else {
+        size_t selLoc = 0;
+        for (size_t i = 0; i < (size_t)[locations count]; i++) {
+            for (size_t j = 0; j < (size_t)[[locations objectAtIndex:i] count]; j++) {
+                if (selLoc == indexPath.row) {
+                    location = [[locations objectAtIndex:i] objectAtIndex:j];
+                }
+                selLoc++;
+            }
+        }
+    }
     
-    Location *location = [self.locations objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = location.name;
+    cell.textLabel.text = [location name];
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica Light" size:12];
 	//cell.detailTextLabel.text = location.category;
     
     return cell;
@@ -107,18 +163,6 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-}
-
-- (IBAction)toggleFilter {
-    [self.tableView setEditing:!self.tableView.editing animated:YES];
-    if (self.tableView.editing) {
-        [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
-        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
-    }
-    else {
-        [self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
-        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStylePlain];
-    }
 }
 
 
@@ -138,18 +182,35 @@
         // prepare selection info
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         
-        Location *loc = [self.locations objectAtIndex:indexPath.row];
+        
+        Location *location;
+        if (isSectioned) {
+            NSMutableArray *category = [locations objectAtIndex:[indexPath section]];
+            location = [category objectAtIndex:[indexPath row]];
+        }
+        else {
+            size_t currentLoc = 0;
+            for (size_t i = 0; i < (size_t)[locations count]; i++) {
+                for (size_t j = 0; j < (size_t)[[locations objectAtIndex:i] count]; j++) {
+                    if (currentLoc == indexPath.row) {
+                        location = [[locations objectAtIndex:i] objectAtIndex:j];
+                    }
+                    currentLoc++;
+                }
+            }
+        }
+        
         NSDictionary *newSelection;
         
         newSelection = [NSDictionary dictionaryWithObjectsAndKeys:
                      indexPath, @"indexPath",
-                     loc, @"location",
+                     location, @"location",
                      agenda, @"agenda",
                      nil];
         
         [destination setValue:newSelection forKey:@"selection"];
         
-        destination.title = loc.name;
+        destination.title = location.name;
     }
 }
 

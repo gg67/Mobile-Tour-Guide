@@ -14,6 +14,7 @@
 @property (strong, nonatomic) UINavigationController *navController;
 @property (strong, nonatomic) NSMutableArray *locations;
 @property (strong, nonatomic) NSMutableArray *agenda;
+@property (strong, nonatomic) NSMutableArray *categories;
 @property (strong, nonatomic) NSMutableArray *tours;
 
 @end

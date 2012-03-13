@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"View loaded");
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -65,17 +66,20 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    NSLog(@"sections pass");
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"rows pass");
     return [tourList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    NSLog(@"cellforrowpass");
     NSString *identifier = @"LocationCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
@@ -102,10 +106,35 @@
         PlacesViewController *tour = [self.tourList objectAtIndex:indexPath.row];
         NSDictionary *selection;
         
+        NSMutableArray *categories = [NSMutableArray arrayWithCapacity:6];
+        
+        for (size_t i = 0; i < 5; i++) {
+            [categories addObject:[NSMutableArray arrayWithCapacity:6]];
+        }
+        
+        for (size_t i = 0; i < (size_t)[tour.locations count]; i++) {
+            if ([[tour.locations objectAtIndex:i] category] == @"Administrative") {
+                [[categories objectAtIndex:0] addObject:[tour.locations objectAtIndex:i]];
+            }
+            if ([[tour.locations objectAtIndex:i] category] == @"Residence Hall") {
+                [[categories objectAtIndex:1] addObject:[tour.locations objectAtIndex:i]];
+            }
+            if ([[tour.locations objectAtIndex:i] category] == @"Dining Hall") {
+                [[categories objectAtIndex:2] addObject:[tour.locations objectAtIndex:i]];
+            }
+            if ([[tour.locations objectAtIndex:i] category] == @"Class Building") {
+                [[categories objectAtIndex:3] addObject:[tour.locations objectAtIndex:i]];
+            }
+            if ([[tour.locations objectAtIndex:i] category] == @"Athletics / Recreation") {
+                [[categories objectAtIndex:4] addObject:[tour.locations objectAtIndex:i]];
+            }
+        }
+        
         selection = [NSDictionary dictionaryWithObjectsAndKeys:
                      indexPath, @"indexPath",
-                     tour.locations, @"location",
+                     categories, @"location",
                      tour.agenda, @"agenda",
+                     NO, @"isSectioned",
                      nil];
         
         [destination setValue:selection forKey:@"selection"];
@@ -113,30 +142,6 @@
         destination.title = tour.name;
     }
 }
-
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//	if (editingStyle == UITableViewCellEditingStyleDelete)
-//	{
-//        PlacesViewController *location = [self.locations objectAtIndex:indexPath.row];
-//        location.onAgenda = NO;
-//		[self.locations removeObjectAtIndex:indexPath.row];
-//		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//	}   
-//}
-
-
-//- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-//    NSUInteger fromRow = [fromIndexPath row];
-//    NSUInteger toRow = [toIndexPath row];
-//    id object = [tourList objectAtIndex:fromRow];
-//    [tourList removeObjectAtIndex:fromRow];
-//    [tourList insertObject:object atIndex:toRow];
-//}
-//
-//- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return YES;
-//}
 
 
 @end

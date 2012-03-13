@@ -17,5 +17,7 @@
 @property (strong, nonatomic) NSIndexPath *indexSel;
 @property (strong, nonatomic) NSMutableArray *agenda;
 @property (strong, nonatomic) NSString *name;
+@property BOOL isSectioned;
+@property (weak, nonatomic) IBOutlet UITextView *description;
 
 @end
